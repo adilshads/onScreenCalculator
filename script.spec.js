@@ -135,3 +135,33 @@ test('Divide floating-point numbers', () => {
 test('Divide large numbers', () => {
   expect(divide(9999999999999999, 2)).toBe(4999999999999999.5);
 });
+
+
+/** Test for operate function  */
+const { operate } = require('./script');
+
+
+// Test case 1: Addition
+test('Addition', () => {
+  expect(operate('+', 2, 3)).toBe(5);
+});
+
+// Test case 2: Subtraction
+test('Subtraction', () => {
+  expect(operate('-', 5, 2)).toBe(3);
+});
+
+// Test case 3: Multiplication
+test('Multiplication', () => {
+  expect(operate('*', 4, 2)).toBe(8);
+});
+
+// Test case 4: Division
+test('Division', () => {
+  expect(operate('/', 10, 2)).toBe(5);
+});
+
+// Test case 5: Invalid operator
+test('Invalid operator', () => {
+  expect(() => operate('%', 4, 2)).toThrow('Invalid operator');
+});

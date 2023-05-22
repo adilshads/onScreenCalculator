@@ -23,6 +23,7 @@ function operate(operator, num1, num2) {
     }
   }
   
+  
 // Addition
 function add(a, b) {
     return a + b;
@@ -55,5 +56,6 @@ module.exports = {
     subtract,
     multiply,
     divide,
+    operate, 
   };
   
