@@ -3,17 +3,17 @@ function add(a, b) {
     return a + b;
   }
   
-  // Subtraction
+// Subtraction
   function subtract(a, b) {
     return a - b;
   }
   
-  // Multiplication
+// Multiplication
   function multiply(a, b) {
     return a * b;
   }
   
-  // Division
+// Division
   function divide(a, b) {
     if (b === 0) {
       // Handle division by zero
@@ -27,5 +27,6 @@ function add(a, b) {
 
 module.exports = {
     add,
+    subtract,
   };
   
