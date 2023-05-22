@@ -14,13 +14,13 @@ function add(a, b) {
   }
   
 // Division
-  function divide(a, b) {
+function divide(a, b) {
     if (b === 0) {
-      // Handle division by zero
-      return "Cannot divide by zero!";
+      throw new Error('Cannot divide by zero'); // Handle dividing by zero.
     }
     return a / b;
   }
+  
 
 
 /** Everything below this is for testing using Jest */
