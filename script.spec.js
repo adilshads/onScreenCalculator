@@ -34,7 +34,7 @@ test('Add large numbers', () => {
 });
 
 
-/** Test for Subtract function. */
+/** Test for subtract function. */
 
 const { subtract } = require('./script');
 
@@ -66,4 +66,38 @@ test('Subtract floating-point numbers', () => {
 // Test case 6: Subtract large numbers
 test('Subtract large numbers', () => {
   expect(subtract(10000000000000000, 1)).toBe(9999999999999999);
+});
+
+/** Test for multiply function. */
+
+const { multiply } = require('./script');
+
+// Test case 1: Multiply positive numbers
+test('Multiply positive numbers', () => {
+  expect(multiply(5, 3)).toBe(15);
+});
+
+// Test case 2: Multiply negative numbers
+test('Multiply negative numbers', () => {
+  expect(multiply(-5, -2)).toBe(10);
+});
+
+// Test case 3: Multiply positive and negative numbers
+test('Multiply positive and negative numbers', () => {
+  expect(multiply(10, -7)).toBe(-70);
+});
+
+// Test case 4: Multiply by zero
+test('Multiply by zero', () => {
+  expect(multiply(5, 0)).toBe(0);
+});
+
+// Test case 5: Multiply floating-point numbers
+test('Multiply floating-point numbers', () => {
+  expect(multiply(2.5, 1.3)).toBeCloseTo(3.25);
+});
+
+// Test case 6: Multiply large numbers
+test('Multiply large numbers', () => {
+  expect(multiply(9999999999999999, 2)).toBe(19999999999999998);
 });
