@@ -4,6 +4,14 @@ let num1;
 let num2; 
 let operator; 
 
+/** FUNCTIONS FOR ALL BUTTONS */
+function updateDisplay(button) {
+    const buttonValue = button.textContent;
+    const display = document.getElementById('display');
+    display.textContent = buttonValue;
+  }
+  
+
 /** Functions for handling basic arithmatic */
 
 // Operate on numbers from user input 
@@ -57,5 +65,6 @@ module.exports = {
     multiply,
     divide,
     operate, 
+    updateDisplay,
   };
   

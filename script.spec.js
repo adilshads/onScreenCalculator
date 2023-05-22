@@ -165,3 +165,30 @@ test('Division', () => {
 test('Invalid operator', () => {
   expect(() => operate('%', 4, 2)).toThrow('Invalid operator');
 });
+
+
+
+
+
+
+// Import or require the necessary functions or modules
+
+// Mock the DOM elements needed for testing
+document.body.innerHTML = `
+  <button class="numbers" onclick="updateDisplay(this)">0</button>
+  <div id="display">This is the display area</div>
+`;
+
+// Import or require the updateDisplay function from your script
+const { updateDisplay } = require('./script');
+
+// Test the updateDisplay function
+test('Update display when button is clicked', () => {
+  const display = document.getElementById('display');
+
+  // Simulate a button click
+  updateDisplay(document.querySelector('.numbers'));
+
+  // Check if the display content is updated correctly
+  expect(display.textContent).toBe('0');
+});
