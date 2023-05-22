@@ -1,3 +1,11 @@
+/** Variables */
+
+let num1; 
+let num2; 
+let operator; 
+
+/** Functions for handling basic arithmatic */
+
 // Addition
 function add(a, b) {
     return a + b;
