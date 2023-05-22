@@ -21,4 +21,11 @@ function add(a, b) {
     }
     return a / b;
   }
+
+
+/** Everything below this is for testing using Jest */
+
+module.exports = {
+    add,
+  };
   
