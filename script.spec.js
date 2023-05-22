@@ -101,3 +101,37 @@ test('Multiply floating-point numbers', () => {
 test('Multiply large numbers', () => {
   expect(multiply(9999999999999999, 2)).toBe(19999999999999998);
 });
+
+/** Tests for divide function. */
+
+const { divide } = require('./script');
+
+// Test case 1: Divide positive numbers
+test('Divide positive numbers', () => {
+  expect(divide(10, 2)).toBe(5);
+});
+
+// Test case 2: Divide negative numbers
+test('Divide negative numbers', () => {
+  expect(divide(-10, -2)).toBe(5);
+});
+
+// Test case 3: Divide positive and negative numbers
+test('Divide positive and negative numbers', () => {
+  expect(divide(10, -2)).toBe(-5);
+});
+
+// Test case 4: Divide by zero
+test('Divide by zero', () => {
+  expect(() => divide(5, 0)).toThrow('Cannot divide by zero');
+});
+
+// Test case 5: Divide floating-point numbers
+test('Divide floating-point numbers', () => {
+  expect(divide(3.5, 1.4)).toBeCloseTo(2.5);
+});
+
+// Test case 6: Divide large numbers
+test('Divide large numbers', () => {
+  expect(divide(9999999999999999, 2)).toBe(4999999999999999.5);
+});
