@@ -3,14 +3,41 @@
 let num1; 
 let num2; 
 let operator; 
+let currentOperator;
+
 
 /** FUNCTIONS FOR ALL BUTTONS */
 function updateDisplay(button) {
-    const buttonValue = button.textContent;
-    const display = document.getElementById('display');
-    display.textContent = buttonValue;
+  const buttonValue = button.textContent;
+  const display = document.getElementById('display');
+
+  if (button.classList.contains('numbers')) {
+    const number = parseFloat(buttonValue);
+    display.textContent += number;
+  } else if (buttonValue === '=') {
+    num2 = parseFloat(display.textContent);
+    display.textContent = operate(operator, num1, num2);
+  } else {
+    operator = buttonValue;
+    num1 = parseFloat(display.textContent);
+    display.textContent += ` ${operator} `;
   }
-  
+}
+
+function operate(operator, num1, num2) {
+  switch (operator) {
+    case '+':
+      return add(num1, num2);
+    case '-':
+      return subtract(num1, num2);
+    case '*':
+      return multiply(num1, num2);
+    case '/':
+      return divide(num1, num2);
+    default:
+      throw new Error('Invalid operator');
+  }
+}
 
 /** Functions for handling basic arithmatic */
 
@@ -57,7 +84,7 @@ function divide(a, b) {
   
 
 
-/** Everything below this is for testing using Jest */
+/** Everything below this is for testing using Jest 
 
 module.exports = {
     add,
@@ -68,3 +95,4 @@ module.exports = {
     updateDisplay,
   };
   
+  */
