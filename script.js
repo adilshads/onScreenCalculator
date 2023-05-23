@@ -1,10 +1,9 @@
 /** Variables */
-
+let currentExpression = '';
+let currentNumber = '';
 let num1; 
 let num2; 
 let operator; 
-let currentOperator;
-
 
 /** FUNCTIONS FOR ALL BUTTONS */
 function updateDisplay(button) {
@@ -12,17 +11,24 @@ function updateDisplay(button) {
   const display = document.getElementById('display');
 
   if (button.classList.contains('numbers')) {
-    const number = parseFloat(buttonValue);
-    display.textContent += number;
+    currentNumber += buttonValue;
+    display.textContent = currentNumber;
   } else if (buttonValue === '=') {
-    num2 = parseFloat(display.textContent);
-    display.textContent = operate(operator, num1, num2);
+    num2 = parseFloat(currentNumber);
+    const result = operate(operator, num1, num2);
+    display.textContent = result;
+    currentNumber = result.toString(); // Convert the result to a string for concatenation
+    num1 = result; // Set the result as the new num1
   } else {
+    if (currentNumber !== '') {
+      num1 = parseFloat(currentNumber);
+      currentNumber = '';
+    }
     operator = buttonValue;
-    num1 = parseFloat(display.textContent);
-    display.textContent += ` ${operator} `;
+    currentNumber = '';
   }
 }
+
 
 function operate(operator, num1, num2) {
   switch (operator) {
@@ -37,6 +43,15 @@ function operate(operator, num1, num2) {
     default:
       throw new Error('Invalid operator');
   }
+}
+
+
+function resetValues() {
+  currentExpression = '';
+  currentNumber = '';
+  num1 = undefined;
+  num2 = undefined;
+  operator = undefined;
 }
 
 /** Functions for handling basic arithmatic */
@@ -84,7 +99,7 @@ function divide(a, b) {
   
 
 
-/** Everything below this is for testing using Jest 
+/** Everything below this is for testing using Jest */
 
 module.exports = {
     add,
@@ -95,4 +110,4 @@ module.exports = {
     updateDisplay,
   };
   
-  */
+  
