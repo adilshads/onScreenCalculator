@@ -1,4 +1,4 @@
-/** Tests for add function. */
+/** TESTS FOR ADD FUNCTION. */
 
 // Import or require the add function from your script
 const { add } = require('./script');
@@ -34,7 +34,7 @@ test('Add large numbers', () => {
 });
 
 
-/** Test for subtract function. */
+/** TEST FOR SUBTRACT FUNCTION. */
 
 const { subtract } = require('./script');
 
@@ -68,7 +68,7 @@ test('Subtract large numbers', () => {
   expect(subtract(10000000000000000, 1)).toBe(9999999999999999);
 });
 
-/** Test for multiply function. */
+/** TEST FOR MULTIPLY FUNCTION. */
 
 const { multiply } = require('./script');
 
@@ -102,7 +102,7 @@ test('Multiply large numbers', () => {
   expect(multiply(9999999999999999, 2)).toBe(19999999999999998);
 });
 
-/** Tests for divide function. */
+/** TESTS FOR DIVIDE FUNCTION. */
 
 const { divide } = require('./script');
 
@@ -137,31 +137,31 @@ test('Divide large numbers', () => {
 });
 
 
-/** Test for operate function  */
+/** Test for OPERATE function  */
+
 const { operate } = require('./script');
 
-
-// Test case 1: Addition
-test('Addition', () => {
+// Addition
+test('Addition: 2 + 3 = 5', () => {
   expect(operate('+', 2, 3)).toBe(5);
 });
 
-// Test case 2: Subtraction
-test('Subtraction', () => {
+// Subtraction
+test('Subtraction: 5 - 2 = 3', () => {
   expect(operate('-', 5, 2)).toBe(3);
 });
 
-// Test case 3: Multiplication
-test('Multiplication', () => {
-  expect(operate('*', 4, 2)).toBe(8);
+// Multiplication
+test('Multiplication: 4 * 3 = 12', () => {
+  expect(operate('*', 4, 3)).toBe(12);
 });
 
-// Test case 4: Division
-test('Division', () => {
+// Division
+test('Division: 10 / 2 = 5', () => {
   expect(operate('/', 10, 2)).toBe(5);
 });
 
-// Test case 5: Invalid operator
-test('Invalid operator', () => {
-  expect(() => operate('%', 4, 2)).toThrow('Invalid operator');
+// Invalid operator
+test('Invalid Operator: %', () => {
+  expect(() => operate('%', 5, 2)).toThrow('Invalid operator');
 });
