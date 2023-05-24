@@ -6,7 +6,7 @@ let num2;
 let operator; 
 
 
-/** FUNCTIONS FOR ALL BUTTONS */
+/** Functions for Display Screen */
 
 function updateDisplay(button) {
   const buttonValue = button.textContent;
@@ -51,6 +51,31 @@ function resetValues() {
   num2 = undefined;
   operator = undefined;
 }
+
+
+/** Function for Positive Negative Toggle Button */
+
+const negativeButton = document.getElementById('negativeButton');
+negativeButton.addEventListener('click', toggleNegative);
+
+function toggleNegative() {
+  const display = document.getElementById('display');
+  if (currentNumber === '') {
+    return; // No current number to toggle the sign
+  }
+
+  if (currentNumber.startsWith('-')) {
+    // Make the number positive
+    currentNumber = currentNumber.slice(1);
+  } else {
+    // Make the number negative
+    currentNumber = '-' + currentNumber;
+  }
+
+  display.textContent = currentNumber;
+}
+
+
 
 /** Functions for handling basic arithmatic */
 

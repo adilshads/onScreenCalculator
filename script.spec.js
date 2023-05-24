@@ -204,4 +204,3 @@ test('Button click with "=" should update the display', () => {
   expect(button.classList.contains).toHaveBeenCalledWith('numbers');
   // Additional assertions for other parts of the function
 });
-
