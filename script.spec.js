@@ -1,3 +1,8 @@
+/**
+ * @jest-environment jsdom
+ */
+
+
 /** TESTS FOR ADD FUNCTION. */
 
 // Import or require the add function from your script
@@ -164,4 +169,30 @@ test('Division: 10 / 2 = 5', () => {
 // Invalid operator
 test('Invalid Operator: %', () => {
   expect(() => operate('%', 5, 2)).toThrow('Invalid operator');
+});
+
+
+/** Test updateDisplay function. */
+
+
+// Import or require the necessary functions from your script
+const { updateDisplay } = require('./script');
+
+// Mock the necessary elements and functions
+document.getElementById = jest.fn().mockReturnValue({
+  classList: {
+    contains: jest.fn().mockReturnValue(false)
+  },
+  textContent: ''
+});
+const button = { textContent: '=' };
+
+// Test case: Button click with '='
+test('Button click with "="', () => {
+  updateDisplay(button);
+
+  // Verify the expected behavior
+  expect(operate).toHaveBeenCalledWith(undefined, undefined, parseFloat(''));
+  expect(document.getElementById).toHaveBeenCalledWith('display');
+  expect(document.getElementById('display').textContent).toBe('10');
 });

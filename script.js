@@ -5,12 +5,16 @@ let num1;
 let num2; 
 let operator; 
 
+
 /** FUNCTIONS FOR ALL BUTTONS */
 function updateDisplay(button) {
   const buttonValue = button.textContent;
   const display = document.getElementById('display');
 
-  if (button.classList.contains('numbers')) {
+  if (
+    button.classList.contains('numbers') ||
+    (button.classList.contains('decimal') && !currentNumber.includes('.'))
+  ) {
     currentNumber += buttonValue;
     display.textContent = currentNumber;
   } else if (buttonValue === '=') {
