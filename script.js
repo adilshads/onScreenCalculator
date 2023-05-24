@@ -7,22 +7,30 @@ let operator;
 
 
 /** FUNCTIONS FOR ALL BUTTONS */
+
 function updateDisplay(button) {
   const buttonValue = button.textContent;
   const display = document.getElementById('display');
 
-  if (
-    button.classList.contains('numbers') ||
-    (button.classList.contains('decimal') && !currentNumber.includes('.'))
-  ) {
-    currentNumber += buttonValue;
+  if (button.classList.contains('numbers') || buttonValue === '.') {
+    // Append decimal point only if currentNumber doesn't already contain one
+    if (buttonValue === '.' && currentNumber.includes('.')) {
+      return; // Don't append multiple decimal points
+    }
+
+    if (currentNumber === '0' && buttonValue === '.') {
+      currentNumber = '0.'; // Update currentNumber to '0.' when appending decimal to '0'
+    } else {
+      currentNumber += buttonValue; // Append the button value to currentNumber
+    }
+
     display.textContent = currentNumber;
   } else if (buttonValue === '=') {
     num2 = parseFloat(currentNumber);
     const result = operate(operator, num1, num2);
     display.textContent = result;
-    currentNumber = result.toString(); // Convert the result to a string for concatenation
-    num1 = result; // Set the result as the new num1
+    currentNumber = result.toString();
+    num1 = result;
   } else {
     if (currentNumber !== '') {
       num1 = parseFloat(currentNumber);
@@ -32,6 +40,8 @@ function updateDisplay(button) {
     currentNumber = '';
   }
 }
+
+
 
 
 function resetValues() {
