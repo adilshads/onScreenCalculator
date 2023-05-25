@@ -27,25 +27,16 @@ function updateDisplay(button) {
   } else if (buttonValue === '=') {
     num2 = parseFloat(currentNumber);
     const result = operate(operator, num1, num2);
-    display.textContent = result;
-    currentNumber = result.toString();
+    const formattedResult = formatResult(result); // Format the result
+    display.textContent = formattedResult;
+    currentNumber = formattedResult;
     num1 = result;
-  } else if (buttonValue === '²') {
+  } else if (buttonValue === '²' || buttonValue === '√') {
     num1 = parseFloat(currentNumber);
-    const result = square(num1);
-    display.textContent = result;
-    currentNumber = result.toString();
-    num1 = result;
-  } else if (buttonValue === '√') {
-    num1 = parseFloat(currentNumber);
-    try {
-      const result = squareRoot(num1);
-      display.textContent = result;
-      currentNumber = result.toString();
-      num1 = result;
-    } catch (error) {
-      display.textContent = 'Error: ' + error.message;
-    }
+    const result = operate(buttonValue, num1); // Pass the operator directly to operate()
+    const formattedResult = formatResult(result); // Format the result
+    display.textContent = formattedResult;
+    currentNumber = formattedResult;
   } else {
     if (currentNumber !== '') {
       num1 = parseFloat(currentNumber);
@@ -55,6 +46,17 @@ function updateDisplay(button) {
     currentNumber = '';
   }
 }
+
+function formatResult(result) {
+  const roundedResult = Math.round(result * 10000) / 10000; // Round the result to 4 decimal places
+  if (Number.isInteger(roundedResult)) {
+    // If the rounded result is an integer, display it as is
+    return roundedResult.toString();
+  } else {
+    return roundedResult.toFixed(4); // Convert the rounded result to a string with a maximum of 4 decimal places
+  }
+}
+
 
 
 
@@ -105,15 +107,29 @@ function operate(operator, num1, num2) {
     case '*':
       return multiply(num1, num2);
     case '/':
+      if (num2 === 0) {
+        displayError('Cannot divide by zero');
+        return; // Stop further calculation
+      }
       return divide(num1, num2);
     case '²':
       return square(num1);
     case '√':
+      if (num1 < 0) {
+        displayError('Cannot calculate square root of a negative number');
+        return; // Stop further calculation
+      }
       return squareRoot(num1);
     default:
       throw new Error('Invalid operator');
   }
 }
+
+function displayError(message) {
+  const display = document.getElementById('display');
+  display.textContent = message;
+}
+
 
 // Addition
 function add(a, b) {
