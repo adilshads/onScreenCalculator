@@ -7,7 +7,6 @@ let operator;
 
 
 /** Functions for Display Screen */
-
 function updateDisplay(button) {
   const buttonValue = button.textContent;
   const display = document.getElementById('display');
@@ -31,6 +30,22 @@ function updateDisplay(button) {
     display.textContent = result;
     currentNumber = result.toString();
     num1 = result;
+  } else if (buttonValue === '²') {
+    num1 = parseFloat(currentNumber);
+    const result = square(num1);
+    display.textContent = result;
+    currentNumber = result.toString();
+    num1 = result;
+  } else if (buttonValue === '√') {
+    num1 = parseFloat(currentNumber);
+    try {
+      const result = squareRoot(num1);
+      display.textContent = result;
+      currentNumber = result.toString();
+      num1 = result;
+    } catch (error) {
+      display.textContent = 'Error: ' + error.message;
+    }
   } else {
     if (currentNumber !== '') {
       num1 = parseFloat(currentNumber);
@@ -40,6 +55,7 @@ function updateDisplay(button) {
     currentNumber = '';
   }
 }
+
 
 
 
@@ -74,52 +90,67 @@ function toggleNegative() {
 
   display.textContent = currentNumber;
 }
-
+ 
 
 
 /** Functions for handling basic arithmatic */
 
-// Operate on numbers from user input 
-
+// Operate on numbers from user input
 function operate(operator, num1, num2) {
-    switch (operator) {
-      case '+':
-        return add(num1, num2);
-      case '-':
-        return subtract(num1, num2);
-      case '*':
-        return multiply(num1, num2);
-      case '/':
-        return divide(num1, num2);
-      default:
-        throw new Error('Invalid operator');
-    }
+  switch (operator) {
+    case '+':
+      return add(num1, num2);
+    case '-':
+      return subtract(num1, num2);
+    case '*':
+      return multiply(num1, num2);
+    case '/':
+      return divide(num1, num2);
+    case '²':
+      return square(num1);
+    case '√':
+      return squareRoot(num1);
+    default:
+      throw new Error('Invalid operator');
   }
-  
-  
+}
+
 // Addition
 function add(a, b) {
-    return a + b;
-  }
-  
+  return a + b;
+}
+
 // Subtraction
-  function subtract(a, b) {
-    return a - b;
-  }
-  
+function subtract(a, b) {
+  return a - b;
+}
+
 // Multiplication
-  function multiply(a, b) {
-    return a * b;
-  }
-  
+function multiply(a, b) {
+  return a * b;
+}
+
 // Division
 function divide(a, b) {
-    if (b === 0) {
-      throw new Error('Cannot divide by zero'); // Handle dividing by zero.
-    }
-    return a / b;
+  if (b === 0) {
+    throw new Error('Cannot divide by zero'); // Handle dividing by zero.
   }
-  
+  return a / b;
+}
+
+// Square
+function square(a) {
+  return a * a;
+}
+
+// Square root
+function squareRoot(a) {
+  if (a < 0) {
+    throw new Error('Cannot calculate square root of a negative number');
+  }
+  return Math.sqrt(a);
+}
+
 
 
 /** Everything below this is for testing using Jest */
@@ -131,6 +162,8 @@ module.exports = {
     divide,
     operate, 
     updateDisplay,
+    square,
+    squareRoot,
   };
   
   

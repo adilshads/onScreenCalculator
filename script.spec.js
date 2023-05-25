@@ -204,3 +204,28 @@ test('Button click with "=" should update the display', () => {
   expect(button.classList.contains).toHaveBeenCalledWith('numbers');
   // Additional assertions for other parts of the function
 });
+
+const { square, squareRoot } = require('./script');
+
+
+test('should calculate the square of a number', () => {
+  // Arrange
+  const number = 5;
+
+  // Act
+  const result = square(number);
+
+  // Assert
+  expect(result).toBe(25);
+});
+
+test('should calculate the square root of a number', () => {
+  // Arrange
+  const number = 25;
+
+  // Act
+  const result = squareRoot(number);
+
+  // Assert
+  expect(result).toBe(5);
+});
