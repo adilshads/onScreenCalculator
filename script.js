@@ -7,6 +7,8 @@ let operator;
 
 
 /** Functions for Display Screen */
+
+
 function updateDisplay(button) {
   const buttonValue = button.textContent;
   const display = document.getElementById('display');
@@ -24,19 +26,40 @@ function updateDisplay(button) {
     }
 
     display.textContent = currentNumber;
+    updateSecondaryDisplay();
   } else if (buttonValue === '=') {
     num2 = parseFloat(currentNumber);
     const result = operate(operator, num1, num2);
-    const formattedResult = formatResult(result); // Format the result
-    display.textContent = formattedResult;
-    currentNumber = formattedResult;
+    display.textContent = formatResult(result);
+    currentNumber = result.toString();
     num1 = result;
-  } else if (buttonValue === '²' || buttonValue === '√') {
+    clearSecondaryDisplay();
+  } else if (buttonValue === '²') {
     num1 = parseFloat(currentNumber);
-    const result = operate(buttonValue, num1); // Pass the operator directly to operate()
-    const formattedResult = formatResult(result); // Format the result
-    display.textContent = formattedResult;
-    currentNumber = formattedResult;
+    const result = square(num1);
+    display.textContent = formatResult(result);
+    currentNumber = result.toString();
+    num1 = result;
+    operator = undefined;
+    num2 = undefined;
+    updateSecondaryDisplay();
+  } else if (buttonValue === '√') {
+    num1 = parseFloat(currentNumber);
+    if (num1 < 0) {
+      display.textContent = 'Error';
+      currentNumber = '';
+      num1 = undefined;
+      operator = undefined;
+      num2 = undefined;
+    } else {
+      const result = squareRoot(num1);
+      display.textContent = formatResult(result);
+      currentNumber = result.toString();
+      num1 = result;
+      operator = undefined;
+      num2 = undefined;
+      updateSecondaryDisplay();
+    }
   } else {
     if (currentNumber !== '') {
       num1 = parseFloat(currentNumber);
@@ -44,9 +67,35 @@ function updateDisplay(button) {
     }
     operator = buttonValue;
     currentNumber = '';
+    updateSecondaryDisplay();
   }
 }
 
+function updateSecondaryDisplay() {
+  const secondaryDisplay = document.getElementById('secondary-display');
+  let expression = '';
+
+  if (num1 !== undefined) {
+    expression += num1;
+  }
+
+  if (operator !== undefined) {
+    expression += ` ${operator}`;
+  }
+
+  if (currentNumber !== '') {
+    expression += ` ${currentNumber}`;
+  }
+
+  secondaryDisplay.textContent = expression;
+}
+
+function clearSecondaryDisplay() {
+  const secondaryDisplay = document.getElementById('secondary-display');
+  secondaryDisplay.textContent = '';
+}
+
+// Rounds answer to the 4th decimal. 
 function formatResult(result) {
   const roundedResult = Math.round(result * 10000) / 10000; // Round the result to 4 decimal places
   if (Number.isInteger(roundedResult)) {
@@ -56,10 +105,6 @@ function formatResult(result) {
     return roundedResult.toFixed(4); // Convert the rounded result to a string with a maximum of 4 decimal places
   }
 }
-
-
-
-
 
 
 function resetValues() {
@@ -181,5 +226,3 @@ module.exports = {
     square,
     squareRoot,
   };
-  
-  
