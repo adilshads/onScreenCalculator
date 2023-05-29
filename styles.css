@@ -20,6 +20,7 @@ html, body {
     width: 320px; /* Set the desired width */
     height: 500px; /* Set the desired height */
     border: 2px solid #000000; /* Add a border with a 2px width and black color */
+    background-color: #E0F2FE;
 }
 
 .calculator .display-container {
