@@ -22,38 +22,40 @@
     
       <div class="button-row">
         <!-- First row of buttons -->
-        <button class="numbers" onclick="updateDisplay(this)">0</button>
-        <button class="button decimal" onclick="updateDisplay(this)">.</button>
-        <button class="equals" onclick="updateDisplay(this)">=</button>
-        <button class="operators" onclick="updateDisplay(this)">+</button>
+        <button class="numbers" onclick="updateDisplay(this)" data-key="0">0</button>
+        <button class="button decimal" onclick="updateDisplay(this)" data-key=".">.</button>
+        <button class="equals" onclick="updateDisplay(this)" data-key="return">=</button>
+        <button class="operators" onclick="updateDisplay(this)" data-key="+">+</button>
+        <button id="negativeButton" onclick="toggleNegative()">+/-</button>
+
       </div>
       <div class="button-row">
         <!-- Second row of buttons -->
-        <button class="numbers" onclick="updateDisplay(this)">1</button>
-        <button class="numbers" onclick="updateDisplay(this)">2</button>
-        <button class="numbers" onclick="updateDisplay(this)">3</button>
-        <button class="operators" onclick="updateDisplay(this)">-</button>
+        <button class="numbers" onclick="updateDisplay(this)" data-key="1">1</button>
+        <button class="numbers" onclick="updateDisplay(this)" data-key="2">2</button>
+        <button class="numbers" onclick="updateDisplay(this)" data-key="3">3</button>
+        <button class="operators" onclick="updateDisplay(this)" data-key="-">-</button>
       </div>
       <div class="button-row">
         <!-- Third row of buttons -->
-        <button class="numbers" onclick="updateDisplay(this)">4</button>
-        <button class="numbers" onclick="updateDisplay(this)">5</button>
-        <button class="numbers" onclick="updateDisplay(this)">6</button>
-        <button class="operators" onclick="updateDisplay(this)">*</button>
+        <button class="numbers" onclick="updateDisplay(this)" data-key="4">4</button>
+        <button class="numbers" onclick="updateDisplay(this)" data-key="5">5</button>
+        <button class="numbers" onclick="updateDisplay(this)" data-key="6">6</button>
+        <button class="operators" onclick="updateDisplay(this)" data-key="*">*</button>
       </div>
       <div class="button-row">
         <!-- Fourth row of buttons -->
-        <button class="numbers" onclick="updateDisplay(this)">7</button>
-        <button class="numbers" onclick="updateDisplay(this)">8</button>
-        <button class="numbers" onclick="updateDisplay(this)">9</button>
-        <button class="operators" onclick="updateDisplay(this)">/</button>
+        <button class="numbers" onclick="updateDisplay(this)" data-key="7">7</button>
+        <button class="numbers" onclick="updateDisplay(this)" data-key="8">8</button>
+        <button class="numbers" onclick="updateDisplay(this)" data-key="9">9</button>
+        <button class="operators" onclick="updateDisplay(this)" data-key="/">/</button>
       </div>
       <div class="button-row">
         <!-- Fifth row of buttons -->
-        <button class="squared" onclick="updateDisplay(this)">²</button>
-        <button class="square-root" onclick="updateDisplay(this)">√</button>
-        <button class="delete" onclick="deleteInput()">Delete</button>
-        <button class="clear" id="clearButton">Clear</button>
+        <button class="squared" onclick="updateDisplay(this)" data-key="^">²</button>
+        <button class="square-root" onclick="updateDisplay(this)" data-key="r">√</button>
+        <button class="delete" onclick="deleteInput()" data-key="delete">Delete</button>
+        <button class="clear" id="clearButton" data-key="esc">Clear</button>
       </div>
     </div>
 

@@ -151,8 +151,8 @@ function clearCalculator() {
 
 /** Function for Positive Negative Toggle Button */
 
-const negativeButton = document.getElementById('negativeButton');
-negativeButton.addEventListener('click', toggleNegative);
+const toggleButton = document.getElementById('toggleButton');
+toggleButton.addEventListener('click', toggleNegative);
 
 function toggleNegative() {
   const display = document.getElementById('display');
@@ -170,6 +170,7 @@ function toggleNegative() {
 
   display.textContent = currentNumber;
 }
+
  
 
 
@@ -245,6 +246,7 @@ function squareRoot(a) {
   return Math.sqrt(a);
 }
 
+/** Add Keyboard Functionality */
 
 
 /** Everything below this is for testing using Jest */
