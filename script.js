@@ -148,15 +148,6 @@ function clearCalculator() {
 }
 
 
-function resetValues() {
-  currentExpression = '';
-  currentNumber = '';
-  num1 = undefined;
-  num2 = undefined;
-  operator = undefined;
-}
-
-
 /** Function for Positive Negative Toggle Button */
 
 const negativeButton = document.getElementById('negativeButton');
