@@ -39,27 +39,27 @@ html, body {
 }
   
 .calculator button.numbers {
-    background-color: #004C99;
+    background-color: #6CB2EB;
     color: white;
 }
   
 .calculator button.operators {
-    background-color: #66B2FF;
+    background-color: #9A70B4;
     color: black;
 }
   
 .calculator button.decimal {
-    background-color: #99CCFF;
+    background-color: #53D6C7;
     color: black;
 }
   
 .calculator button.equals {
-    background-color: #3366CC;
+    background-color: #FF6090;
     color: white;
 }
   
 .calculator button.delete {
-    background-color: #003366;
+    background-color: #FF9345;
     color: white;
 }
   
@@ -69,12 +69,12 @@ html, body {
 }
 
 .calculator button.squared {
-    background-color: #63e8e6; 
+    background-color: #6EDC6B; 
     color: black;
 }
   
 .calculator button.square-root {
-    background-color: #000080;
+    background-color: #FFD700;
     color: white;
 }
 
