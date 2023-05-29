@@ -1,3 +1,9 @@
 * {
     box-sizing: border-box;
 }
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
