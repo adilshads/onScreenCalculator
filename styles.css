@@ -5,6 +5,10 @@
 html, body {
     height: 100%;
     margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
   
 .calculator {
@@ -13,8 +17,21 @@ html, body {
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 320px; /* Set the desired width */
+    height: 500px; /* Set the desired height */
+    border: 2px solid #000000; /* Add a border with a 2px width and black color */
 }
 
+.calculator .display-container {
+    height: 60px;
+    width: 300px;
+    border: 2px solid #000000;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+  
 .calculator button {
     width: 60px;
     height: 60px;
@@ -52,7 +69,7 @@ html, body {
 }
 
 .calculator button.squared {
-    background-color: #63e8e6; /* Replace with your desired color */
+    background-color: #63e8e6; 
     color: black;
 }
   
@@ -60,3 +77,6 @@ html, body {
     background-color: #000080;
     color: white;
 }
+
+
+  
