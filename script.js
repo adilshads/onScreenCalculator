@@ -126,6 +126,27 @@ function formatResult(result) {
   }
 }
 
+// Clear Button 
+
+const clearButton = document.getElementById('clearButton');
+clearButton.addEventListener('click', clearCalculator);
+
+function clearCalculator() {
+  // Reset all variables
+  currentExpression = '';
+  currentNumber = '';
+  num1 = undefined;
+  num2 = undefined;
+  operator = undefined;
+
+  // Clear the display
+  const display = document.getElementById('display');
+  display.textContent = '0';
+
+  // Clear the secondary display
+  clearSecondaryDisplay();
+}
+
 
 function resetValues() {
   currentExpression = '';
