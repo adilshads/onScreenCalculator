@@ -17,9 +17,9 @@ html, body {
     align-items: center;
     justify-content: center;
     height: 100%;
-    width: 320px; /* Set the desired width */
-    height: 500px; /* Set the desired height */
-    border: 2px solid #000000; /* Add a border with a 2px width and black color */
+    width: 320px; 
+    height: 500px; 
+    border: 2px solid #000000; 
     background-color: #E0F2FE;
 }
 
@@ -31,6 +31,7 @@ html, body {
     display: flex;
     justify-content: flex-end;
     overflow: hidden;
+    font-family: "Roboto", sans-serif;
 }
 
   
