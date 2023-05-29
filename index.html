@@ -9,46 +9,51 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- Number buttons -->
-  <button class="numbers" onclick="updateDisplay(this)">0</button>
-  <button class="numbers" onclick="updateDisplay(this)">1</button>
-  <button class="numbers" onclick="updateDisplay(this)">2</button>
-  <button class="numbers" onclick="updateDisplay(this)">3</button>
-  <button class="numbers" onclick="updateDisplay(this)">4</button>
-  <button class="numbers" onclick="updateDisplay(this)">5</button>
-  <button class="numbers" onclick="updateDisplay(this)">6</button>
-  <button class="numbers" onclick="updateDisplay(this)">7</button>
-  <button class="numbers" onclick="updateDisplay(this)">8</button>
-  <button class="numbers" onclick="updateDisplay(this)">9</button>
-  <button class="button decimal" onclick="updateDisplay(this)">.</button>
+  <div class="calculator">
 
 
-  <!-- Operator buttons -->
-  <button class="operators" onclick="updateDisplay(this)">+</button>
-  <button class="operators" onclick="updateDisplay(this)">-</button>
-  <button class="operators" onclick="updateDisplay(this)">*</button>
-  <button class="operators" onclick="updateDisplay(this)">/</button>
+    <!-- Display area -->
+    <div id="display"></div>
+    <div id="secondary-display"></div>
+    
 
+    <div class="button-row">
+      <!-- First row of buttons -->
+      <button class="numbers" onclick="updateDisplay(this)">0</button>
+      <button class="button decimal" onclick="updateDisplay(this)">.</button>
+      <button onclick="updateDisplay(this)">=</button>
+      <button class="operators" onclick="updateDisplay(this)">+</button>
+    </div>
+    <div class="button-row">
+      <!-- Second row of buttons -->
+      <button class="numbers" onclick="updateDisplay(this)">1</button>
+      <button class="numbers" onclick="updateDisplay(this)">2</button>
+      <button class="numbers" onclick="updateDisplay(this)">3</button>
+      <button class="operators" onclick="updateDisplay(this)">-</button>
+    </div>
+    <div class="button-row">
+      <!-- Third row of buttons -->
+      <button class="numbers" onclick="updateDisplay(this)">4</button>
+      <button class="numbers" onclick="updateDisplay(this)">5</button>
+      <button class="numbers" onclick="updateDisplay(this)">6</button>
+      <button class="operators" onclick="updateDisplay(this)">*</button>
+    </div>
+    <div class="button-row">
+      <!-- Fourth row of buttons -->
+      <button class="numbers" onclick="updateDisplay(this)">7</button>
+      <button class="numbers" onclick="updateDisplay(this)">8</button>
+      <button class="numbers" onclick="updateDisplay(this)">9</button>
+      <button class="operators" onclick="updateDisplay(this)">/</button>
+    </div>
+    <div class="button-row">
+      <!-- Fifth row of buttons -->
+      <button onclick="updateDisplay(this)">²</button>
+      <button onclick="updateDisplay(this)">√</button>
+      <button class="delete" onclick="deleteInput()">Delete</button>
+      <button id="clearButton">Clear</button>
+    </div>
 
-  <!-- Equals button -->
-  <button onclick="updateDisplay(this)">=</button>
-
-  <!-- Positive Negative Toggle Button -->
-  <button id="negativeButton" class="button"> +/- </button>
-
-  <!-- Additional Features -->
-  <button onclick="updateDisplay(this)">²</button>
-  <button onclick="updateDisplay(this)">√</button>
-  <button class="delete" onclick="deleteInput()">Delete</button>
-  <button id="clearButton">Clear</button>
-
-
-  
-
-
-  <!-- Display area -->
-  <div id="display"></div>
-  <div id="secondary-display"></div>
+  </div>
 </body>
 </html>
 
