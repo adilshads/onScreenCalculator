@@ -14,5 +14,11 @@ html, body {
     justify-content: center;
     height: 100%;
 }
+
+.calculator button {
+    width: 60px;
+    height: 60px;
+    
+  }
   
   
