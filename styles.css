@@ -19,6 +19,44 @@ html, body {
     width: 60px;
     height: 60px;
     font-family: "Roboto", sans-serif;
-  }
+}
   
+.calculator button.numbers {
+    background-color: #004C99;
+    color: white;
+}
   
+.calculator button.operators {
+    background-color: #66B2FF;
+    color: black;
+}
+  
+.calculator button.decimal {
+    background-color: #99CCFF;
+    color: black;
+}
+  
+.calculator button.equals {
+    background-color: #3366CC;
+    color: white;
+}
+  
+.calculator button.delete {
+    background-color: #003366;
+    color: white;
+}
+  
+.calculator button.clear {
+    background-color: #FFFFFF;
+    color: black;
+}
+
+.calculator button.squared {
+    background-color: #63e8e6; /* Replace with your desired color */
+    color: black;
+}
+  
+.calculator button.square-root {
+    background-color: #000080;
+    color: white;
+}

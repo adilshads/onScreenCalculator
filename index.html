@@ -10,18 +10,15 @@
 </head>
 <body>
   <div class="calculator">
-
-
     <!-- Display area -->
     <div id="display"></div>
     <div id="secondary-display"></div>
-    
-
+  
     <div class="button-row">
       <!-- First row of buttons -->
       <button class="numbers" onclick="updateDisplay(this)">0</button>
       <button class="button decimal" onclick="updateDisplay(this)">.</button>
-      <button onclick="updateDisplay(this)">=</button>
+      <button class="equals" onclick="updateDisplay(this)">=</button>
       <button class="operators" onclick="updateDisplay(this)">+</button>
     </div>
     <div class="button-row">
@@ -47,13 +44,13 @@
     </div>
     <div class="button-row">
       <!-- Fifth row of buttons -->
-      <button onclick="updateDisplay(this)">²</button>
-      <button onclick="updateDisplay(this)">√</button>
+      <button class="squared" onclick="updateDisplay(this)">²</button>
+      <button class="square-root" onclick="updateDisplay(this)">√</button>
       <button class="delete" onclick="deleteInput()">Delete</button>
-      <button id="clearButton">Clear</button>
+      <button class="clear" id="clearButton">Clear</button>
     </div>
-
   </div>
+  
 </body>
 </html>
 
