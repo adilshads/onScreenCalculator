@@ -97,7 +97,7 @@ Feel free to modify the installation instructions based on your specific setup o
 
 # Credits
 
-![Drawing Background](https://pixabay.com/illustrations/sky-nature-clouds-fluffy-cirrus-7232494/)
+![Background](https://pixabay.com/illustrations/sky-nature-clouds-fluffy-cirrus-7232494/)
 Image Credit: [Vicki Hamilton](https://pixabay.com/users/flutie8211-17475707/)
 
 # License
