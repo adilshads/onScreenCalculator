@@ -2,24 +2,37 @@
     box-sizing: border-box;
 }
 
-html, body {
+html {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    background-image: url('onScreenCalculatorBackground.jpg');
+}
+
+body {
     height: 100%;
     margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
 }
-  
+
+.calculator-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .calculator {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 320px; 
-    height: 500px; 
-    border: 2px solid #000000; 
+    height: 500px;
+    width: 320px;
+    border: 2px solid #000000;
     background-color: #E0F2FE;
 }
 
