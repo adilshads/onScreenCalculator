@@ -34,6 +34,13 @@ html, body {
     font-family: "Roboto", sans-serif;
 }
 
+.calculator #display {
+    font-size: 45px;
+}
+
+.calculator #secondary-display {
+    font-size: 30px;
+}
   
 .calculator button {
     width: 60px;
