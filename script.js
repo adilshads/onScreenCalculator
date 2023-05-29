@@ -9,11 +9,25 @@ let operator;
 /** Functions for Display Screen */
 
 
+function deleteInput() {
+  if (currentNumber.length > 0) {
+    currentNumber = currentNumber.slice(0, -1);
+  } else if (operator !== undefined) {
+    operator = undefined;
+  } else if (num1 !== undefined) {
+    num1 = undefined;
+  }
+  updateSecondaryDisplay();
+}
+
 function updateDisplay(button) {
   const buttonValue = button.textContent;
   const display = document.getElementById('display');
 
-  if (button.classList.contains('numbers') || buttonValue === '.') {
+  if (buttonValue === 'Delete') {
+    deleteInput();
+    display.textContent = currentNumber;
+  } else if (button.classList.contains('numbers') || buttonValue === '.') {
     // Append decimal point only if currentNumber doesn't already contain one
     if (buttonValue === '.' && currentNumber.includes('.')) {
       return; // Don't append multiple decimal points
@@ -70,6 +84,7 @@ function updateDisplay(button) {
     updateSecondaryDisplay();
   }
 }
+
 
 function updateSecondaryDisplay() {
   const secondaryDisplay = document.getElementById('secondary-display');
