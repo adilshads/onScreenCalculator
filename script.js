@@ -6,9 +6,9 @@ let num2;
 let operator; 
 
 
-/** Functions for Display Screen */
+/** Functions for Display Screens */
 
-
+// Handles delete button 
 function deleteInput() {
   if (currentNumber.length > 0) {
     currentNumber = currentNumber.slice(0, -1);
@@ -20,6 +20,7 @@ function deleteInput() {
   updateSecondaryDisplay();
 }
 
+// Handles primary screen display 
 function updateDisplay(button) {
   const buttonValue = button.textContent;
   const display = document.getElementById('display');
@@ -85,7 +86,7 @@ function updateDisplay(button) {
   }
 }
 
-
+// Handles secondary screen display 
 function updateSecondaryDisplay() {
   const secondaryDisplay = document.getElementById('secondary-display');
   let expression = '';
@@ -109,7 +110,7 @@ function updateSecondaryDisplay() {
   secondaryDisplay.textContent = expression;
 }
 
-
+// Clears secondary display 
 function clearSecondaryDisplay() {
   const secondaryDisplay = document.getElementById('secondary-display');
   secondaryDisplay.textContent = '';
