@@ -83,12 +83,17 @@ function updateSecondaryDisplay() {
     expression += ` ${operator}`;
   }
 
-  if (currentNumber !== '') {
-    expression += ` ${currentNumber}`;
+  if (currentNumber !== '' && operator !== '²' && operator !== '√') {
+    if (operator !== undefined) {
+      expression += ` ${currentNumber}`;
+    } else {
+      expression = currentNumber;
+    }
   }
 
   secondaryDisplay.textContent = expression;
 }
+
 
 function clearSecondaryDisplay() {
   const secondaryDisplay = document.getElementById('secondary-display');
