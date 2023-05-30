@@ -170,14 +170,6 @@ function toggleNegative() {
   display.textContent = currentNumber;
 }
 
- 
-// Append number to the current input
-function appendNumber(number) {
-  currentNumber += number;
-  display.textContent = currentNumber;
-  updateSecondaryDisplay();
-}
-
 
 /** Functions for handling basic arithmatic */
 
@@ -253,8 +245,6 @@ function squareRoot(a) {
 
 /** Add Keyboard Functionality */
 
-/** Add Keyboard Functionality */
-
 function handleKeyboardInput(event) {
   const key = event.key;
 
@@ -295,6 +285,22 @@ function handleKeyboardInput(event) {
 
 // Attach event listener to window for keyboard input
 window.addEventListener('keydown', handleKeyboardInput);
+
+// Append number to the current input
+function appendNumber(number) {
+  currentNumber += number;
+  display.textContent = currentNumber;
+  updateSecondaryDisplay();
+}
+
+// Delete the last character from the current input
+function deleteNumber() {
+  if (currentNumber.length > 0) {
+    currentNumber = currentNumber.slice(0, -1);
+    display.textContent = currentNumber;
+    updateSecondaryDisplay();
+  }
+}
 
 /** Everything below this is for testing using Jest */
 
