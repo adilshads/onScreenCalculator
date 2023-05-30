@@ -101,8 +101,6 @@ Replace `your-username` with your GitHub username.
 6. Once the installation is complete, you can run the calculator project by executing: npm start
 This will start a local development server, and you can access the calculator in your web browser at [http://localhost:3000](http://localhost:3000).
 
-# API reference
-
 # Tests
 
 Prior to running tests, event listener functions should be 'noted out'. 
@@ -112,7 +110,6 @@ To run the tests for the calculator project, you can use the following command: 
 This will execute the test suite using Jest.
 
 Feel free to modify the installation instructions based on your specific setup or any additional requirements you might have for your calculator project.
-
 
 # How to Use? 
 Access the application in your web browser:
