@@ -85,7 +85,6 @@ function updateDisplay(button) {
     updateSecondaryDisplay();
   }
 }
-
 // Handles secondary screen display 
 function updateSecondaryDisplay() {
   const secondaryDisplay = document.getElementById('secondary-display');
