@@ -325,6 +325,20 @@ function setOperation(key) {
   updateSecondaryDisplay();
 }
 
+// Evaluate the expression
+function evaluate() {
+  if (num1 === undefined || operator === undefined || currentNumber === '') {
+    return; // Not enough information to perform evaluation
+  }
+
+  num2 = parseFloat(currentNumber);
+  const result = operate(operator, num1, num2);
+  display.textContent = formatResult(result);
+  currentNumber = result.toString();
+  num1 = result;
+  clearSecondaryDisplay();
+}
+
 /** Everything below this is for testing using Jest */
 
 module.exports = {
