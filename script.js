@@ -281,6 +281,9 @@ function handleKeyboardInput(event) {
     case 'r':
       updateDisplay(document.querySelector(`button[data-key="${key}"]`));
       break;
+      case 'n':
+        toggleNegative();
+        break;
     default:
       break;
   }
