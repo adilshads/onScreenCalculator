@@ -150,21 +150,20 @@ function clearCalculator() {
 
 
 /** Function for Positive Negative Toggle Button */
-const toggleButton = document.getElementById('toggleButton');
-toggleButton.addEventListener('click', toggleNegative);
-
 function toggleNegative() {
   const display = document.getElementById('display');
+  
   if (currentNumber === '') {
-    return; // No current number to toggle the sign
-  }
-
-  if (currentNumber.startsWith('-')) {
-    // Make the number positive
-    currentNumber = currentNumber.slice(1);
+    // If there is no current number, assume 0 and toggle its sign
+    currentNumber = '0';
   } else {
-    // Make the number negative
-    currentNumber = '-' + currentNumber;
+    if (currentNumber.startsWith('-')) {
+      // Make the number positive
+      currentNumber = currentNumber.slice(1);
+    } else {
+      // Make the number negative
+      currentNumber = '-' + currentNumber;
+    }
   }
 
   display.textContent = currentNumber;
