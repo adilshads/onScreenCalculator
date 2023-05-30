@@ -278,6 +278,10 @@ function handleKeyboardInput(event) {
     case 'Escape':
       clear();
       break;
+    case '^':
+    case 'r':
+      updateDisplay(document.querySelector(`button[data-key="${key}"]`));
+      break;
     default:
       break;
   }
