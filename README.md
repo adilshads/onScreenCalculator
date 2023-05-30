@@ -18,7 +18,7 @@ We invite everyone interested in web development or looking to build their own c
 
 # Build Status
 
-This project is currently under development.
+This project is complete. 
 
 # Code Style
 In this project, I will adhere to the following coding conventions and style guidelines:
@@ -28,10 +28,15 @@ In this project, I will adhere to the following coding conventions and style gui
 - Descriptive variable and function names are preferred to enhance code understanding.
 - Use meaningful comments to explain complex logic or important code sections.
 - File and folder naming should be clear and concise.
-
-By maintaining a consistent code style, I aim to improve code maintainability, readability, and collaboration within the project. Please make sure to follow these guidelines when contributing to the codebase.
+- Variables and functions names should preferly be descriptive and meaningful. This helps enhance code understanding and makes it easier to maintain and debug.
+- Comments use is encouraged: to explain complex logic, document important code sections, and provide additional context where necessary. Clear and concise comments help other developers understand the code more easily.
+- Follow best practices for version control using Git. This includes committing changes frequently with meaningful commit messages, branching and merging strategies, and proper handling of code conflicts.
+- By adhering to these coding conventions and style guidelines, I aim to enhance the maintainability, readability, and collaboration of the codebase. I request all contributors to follow these guidelines when working on the project, ensuring a consistent and high-quality codebase.
+- Feel free to customize and adapt this code style section based on your project's specific needs and requirements.
 
 # Screenshots
+
+![Start Screen](onScreenCalculatorScreenshot.png)
 
 # Tech/Framework used
 
@@ -44,6 +49,8 @@ By maintaining a consistent code style, I aim to improve code maintainability, r
 # Features
 
 - Basic arithmetic operations: Addition, subtraction, multiplication, and division.
+- Squared and square-root features. 
+- Positive Negative Toggle Button.
 - Clear button: Allows the user to clear the input and start fresh.
 - Backspace button: Allows the user to delete the last entered character.
 - Decimal point: Enables decimal number input for more precise calculations.
@@ -54,6 +61,23 @@ By maintaining a consistent code style, I aim to improve code maintainability, r
 These are the core features that I plan to implement in our calculator project. I may expand the functionality further based on the project's progress and requirements. Feel free to suggest any additional features that you think would enhance the calculator's usability.
 
 # Code Examples
+
+1. function addNumbers(a, b) {
+  return a + b;
+}
+
+const result = addNumbers(5, 3);
+console.log(result); // Output: 8
+
+2. <button class="styled-button">Click me</button>
+
+.styled-button {
+  background-color: #ff6090;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+}
 
 # Installation
 To run this calculator project locally, follow these steps:
@@ -77,30 +101,57 @@ Replace `your-username` with your GitHub username.
 6. Once the installation is complete, you can run the calculator project by executing: npm start
 This will start a local development server, and you can access the calculator in your web browser at [http://localhost:3000](http://localhost:3000).
 
-## Running Tests
+# API reference
 
-To run the tests for the calculator project, you can use the following command: npm test
+# Tests
 
+Prior to running tests, event listener functions should be 'noted out'. 
+
+To run the tests for the calculator project, you can use the following command: npm test.
 
 This will execute the test suite using Jest.
 
 Feel free to modify the installation instructions based on your specific setup or any additional requirements you might have for your calculator project.
 
 
-# API reference
-
-# Tests
-
 # How to Use? 
+Access the application in your web browser:
 
-# Contribute
+Open your browser and navigate to https://adilshads.github.io/onScreenCalculator/
+
+Use user interface to interact with the application.
+
+OR 
+
+For Keyboard use the following: 
+
+- Use the number keys (0-9) on your keyboard to input numerical values.
+
+- Press the decimal point (.) key on your keyboard to enter a decimal number.
+
+- Use the following keys for basic arithmetic operations:
+
+  Addition (+): Press the '+' key.
+  Subtraction (-): Press the '-' key.
+  Multiplication (): Press the '' key.
+  Division (/): Press the '/' key.
+  To perform calculations, press the '=' key or the 'Enter' key on your keyboard.
+
+  To clear the display, press the 'Esc' key on your keyboard.
+
+  To toggle the sign of a number (positive/negative), press the 'n' key on your keyboard.
+
+  For advanced operations, use the following keys:
+
+  Square (^): Press the '²' key.
+  Square Root (√): Press the 'r' key.
+  If you make a mistake, use the 'Backspace' key on your keyboard to delete the last entered digit.
 
 # Credits
 
 ![Background](https://pixabay.com/illustrations/sky-nature-clouds-fluffy-cirrus-7232494/)
 Image Credit: [Vicki Hamilton](https://pixabay.com/users/flutie8211-17475707/)
 
-# License
 
 
 
