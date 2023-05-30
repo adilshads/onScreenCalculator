@@ -266,7 +266,7 @@ function handleKeyboardInput(event) {
     case '-':
     case '*':
     case '/':
-      setOperation(key);
+      updateDisplay(document.querySelector(`button[data-key="${key}"]`));
       break;
     case '=':
     case 'Enter':
@@ -282,6 +282,7 @@ function handleKeyboardInput(event) {
       break;
   }
 }
+
 
 // Attach event listener to window for keyboard input
 window.addEventListener('keydown', handleKeyboardInput);
@@ -300,6 +301,24 @@ function deleteNumber() {
     display.textContent = currentNumber;
     updateSecondaryDisplay();
   }
+}
+
+// Set the operator based on the key pressed
+function setOperation(key) {
+  const operatorButtons = document.querySelectorAll('.operators');
+  let operator = key === '*' ? '*' : key === '/' ? '/' : key;
+
+  // Remove the active class from all operator buttons
+  operatorButtons.forEach(button => {
+    button.classList.remove('active');
+  });
+
+  // Add the active class to the button corresponding to the pressed operator key
+  const pressedOperatorButton = document.querySelector(`button[data-key="${operator}"]`);
+  pressedOperatorButton.classList.add('active');
+
+  operator = key;
+  updateSecondaryDisplay();
 }
 
 /** Everything below this is for testing using Jest */
