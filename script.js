@@ -339,6 +339,16 @@ function evaluate() {
   clearSecondaryDisplay();
 }
 
+// Clear the calculator
+function clear() {
+  currentExpression = '';
+  currentNumber = '';
+  num1 = undefined;
+  num2 = undefined;
+  operator = undefined;
+  display.textContent = '0';
+  clearSecondaryDisplay();
+}
 /** Everything below this is for testing using Jest */
 
 module.exports = {
