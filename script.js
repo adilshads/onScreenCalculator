@@ -150,7 +150,6 @@ function clearCalculator() {
 
 
 /** Function for Positive Negative Toggle Button */
-
 const toggleButton = document.getElementById('toggleButton');
 toggleButton.addEventListener('click', toggleNegative);
 
@@ -172,6 +171,12 @@ function toggleNegative() {
 }
 
  
+// Append number to the current input
+function appendNumber(number) {
+  currentNumber += number;
+  display.textContent = currentNumber;
+  updateSecondaryDisplay();
+}
 
 
 /** Functions for handling basic arithmatic */
@@ -248,6 +253,48 @@ function squareRoot(a) {
 
 /** Add Keyboard Functionality */
 
+/** Add Keyboard Functionality */
+
+function handleKeyboardInput(event) {
+  const key = event.key;
+
+  switch (key) {
+    case '0':
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+    case '5':
+    case '6':
+    case '7':
+    case '8':
+    case '9':
+    case '.':
+      appendNumber(key);
+      break;
+    case '+':
+    case '-':
+    case '*':
+    case '/':
+      setOperation(key);
+      break;
+    case '=':
+    case 'Enter':
+      evaluate();
+      break;
+    case 'Backspace':
+      deleteNumber();
+      break;
+    case 'Escape':
+      clear();
+      break;
+    default:
+      break;
+  }
+}
+
+// Attach event listener to window for keyboard input
+window.addEventListener('keydown', handleKeyboardInput);
 
 /** Everything below this is for testing using Jest */
 
