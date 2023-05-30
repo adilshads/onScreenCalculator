@@ -22,12 +22,9 @@
     
       <div class="button-row">
         <!-- First row of buttons -->
-        <button class="numbers" onclick="updateDisplay(this)" data-key="0">0</button>
+        <button class="zero" onclick="updateDisplay(this)" data-key="0">0</button>
         <button class="button decimal" onclick="updateDisplay(this)" data-key=".">.</button>
-        <button class="equals" onclick="updateDisplay(this)" data-key="return">=</button>
         <button class="operators" onclick="updateDisplay(this)" data-key="+">+</button>
-        <button id="toggleButton" onclick="toggleNegative()">+/-</button>
-
       </div>
       <div class="button-row">
         <!-- Second row of buttons -->
@@ -54,6 +51,11 @@
         <!-- Fifth row of buttons -->
         <button class="squared" onclick="updateDisplay(this)" data-key="^">²</button>
         <button class="square-root" onclick="updateDisplay(this)" data-key="r">√</button>
+        <button class="equals" onclick="updateDisplay(this)" data-key="return">=</button>
+      </div>
+      <div class="button-row">
+        <!-- Sixth row of buttons -->
+        <button id="toggleButton" onclick="toggleNegative()">+/-</button>
         <button class="delete" onclick="deleteInput()" data-key="delete">Delete</button>
         <button class="clear" id="clearButton" data-key="esc">Clear</button>
       </div>
