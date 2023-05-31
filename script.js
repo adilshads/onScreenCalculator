@@ -9,18 +9,9 @@ let operator;
 /** Functions for Display Screens */
 
 // Handles delete button 
-function deleteInput() {
-  if (currentNumber.length > 0) {
-    currentNumber = currentNumber.slice(0, -1);
-  } else if (operator !== undefined) {
-    operator = undefined;
-  } else if (num1 !== undefined) {
-    num1 = undefined;
-  }
-  updateSecondaryDisplay();
-}
+/** Functions for Display Screens */
 
-// Handles primary screen display 
+// Handles delete button 
 function updateDisplay(button) {
   const buttonValue = button.textContent;
   const display = document.getElementById('display');
@@ -43,12 +34,7 @@ function updateDisplay(button) {
     display.textContent = currentNumber;
     updateSecondaryDisplay();
   } else if (buttonValue === '=') {
-    num2 = parseFloat(currentNumber);
-    const result = operate(operator, num1, num2);
-    display.textContent = formatResult(result);
-    currentNumber = result.toString();
-    num1 = result;
-    clearSecondaryDisplay();
+    performCalculation();
   } else if (buttonValue === '²') {
     num1 = parseFloat(currentNumber);
     const result = square(num1);
@@ -77,14 +63,22 @@ function updateDisplay(button) {
     }
   } else {
     if (currentNumber !== '') {
-      num1 = parseFloat(currentNumber);
-      currentNumber = '';
+      num2 = parseFloat(currentNumber);
+      if (operator && num1 !== undefined && num2 !== undefined) {
+        const result = operate(operator, num1, num2);
+        display.textContent = formatResult(result);
+        currentNumber = result.toString();
+        num1 = result;
+      } else {
+        num1 = num2;
+      }
     }
     operator = buttonValue;
     currentNumber = '';
     updateSecondaryDisplay();
   }
 }
+
 // Handles secondary screen display 
 function updateSecondaryDisplay() {
   const secondaryDisplay = document.getElementById('secondary-display');
