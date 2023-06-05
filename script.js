@@ -5,13 +5,9 @@ let num1;
 let num2; 
 let operator; 
 
-
 /** Functions for Display Screens */
 
-// Handles delete button 
-/** Functions for Display Screens */
-
-// Handles delete button 
+// Handles display screen
 function updateDisplay(button) {
   const buttonValue = button.textContent;
   const display = document.getElementById('display');
@@ -65,10 +61,7 @@ function updateDisplay(button) {
     if (currentNumber !== '') {
       num2 = parseFloat(currentNumber);
       if (operator && num1 !== undefined && num2 !== undefined) {
-        const result = operate(operator, num1, num2);
-        display.textContent = formatResult(result);
-        currentNumber = result.toString();
-        num1 = result;
+        performCalculation();
       } else {
         num1 = num2;
       }
@@ -76,6 +69,21 @@ function updateDisplay(button) {
     operator = buttonValue;
     currentNumber = '';
     updateSecondaryDisplay();
+  }
+}
+
+// Perform the calculation when equal button is clicked
+function performCalculation() {
+  if (num1 !== undefined && operator !== undefined && currentNumber !== '') {
+    num2 = parseFloat(currentNumber);
+    const result = operate(operator, num1, num2);
+    const display = document.getElementById('display');
+    display.textContent = formatResult(result);
+    currentNumber = result.toString();
+    num1 = result;
+    operator = undefined;
+    num2 = undefined;
+    clearSecondaryDisplay();
   }
 }
 
@@ -193,6 +201,7 @@ function operate(operator, num1, num2) {
   }
 }
 
+
 function displayError(message) {
   const display = document.getElementById('display');
   display.textContent = message;
@@ -258,25 +267,23 @@ function handleKeyboardInput(event) {
     case '-':
     case '*':
     case '/':
+    case '^':
+    case 'r':
       updateDisplay(document.querySelector(`button[data-key="${key}"]`));
       break;
     case '=':
     case 'Enter':
-      evaluate();
+      performCalculation();
       break;
     case 'Backspace':
       deleteNumber();
       break;
     case 'Escape':
-      clear();
+      clearCalculator();
       break;
-    case '^':
-    case 'r':
-      updateDisplay(document.querySelector(`button[data-key="${key}"]`));
+    case 'n':
+      toggleNegative();
       break;
-      case 'n':
-        toggleNegative();
-        break;
     default:
       break;
   }
