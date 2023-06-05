@@ -7,13 +7,17 @@ let operator;
 
 /** Functions for Display Screens */
 
+// Delete button
+
+
+
 // Handles display screen
 function updateDisplay(button) {
   const buttonValue = button.textContent;
   const display = document.getElementById('display');
 
-  if (buttonValue === 'Delete') {
-    deleteInput();
+  if (buttonValue === 'delete') {
+    deleteNumber();
     display.textContent = currentNumber;
   } else if (button.classList.contains('numbers') || buttonValue === '.') {
     // Append decimal point only if currentNumber doesn't already contain one
