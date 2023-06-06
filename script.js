@@ -7,10 +7,6 @@ let operator;
 
 /** Functions for Display Screens */
 
-// Delete button
-
-
-
 // Handles display screen
 function updateDisplay(button) {
   const buttonValue = button.textContent;
